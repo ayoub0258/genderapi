@@ -16,7 +16,7 @@ jobs:
         - name: copy file via ssh password
           uses: appleboy/scp-action@v0.1.7
           with:
-          host: 34.130.71.18
-          key: ${{ secrets.SSH_KEY }}
-          source: "index.html"
-          target: index.html
+            host: 34.130.71.18
+            key: ${{ secrets.SSH_KEY }}
+            source: index.html
+            target: index.html
