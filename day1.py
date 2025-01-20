@@ -1,5 +1,8 @@
 from google.cloud import storage
 from datetime import datetime, timedelta
+import pandas as pd
+from sqlalchemy import create_engine
+
 
 KEYFILE = 'ensai-2025-8f3e0d316c90.json'
 
@@ -25,5 +28,15 @@ def ex_1_bucket():
 
         start += timedelta(days=1)
 
+def ex_4_nyc_sql():
+    host = ""
+    username = "postgres"
+    password = ""
+
+    df = pd.read_parquet("yellow_tripdata_2024-07.parquet")
+    engine = create_engine(f"postgresql://{username}:{password}@{host}", echo=False)
+    df[:1000].to_sql("taxi", con=engine, if_exists="replace")
+
+
 if __name__ == "__main__":
-    ex_1_bucket()
+    ex_4_nyc_sql()
