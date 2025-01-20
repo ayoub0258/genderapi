@@ -20,4 +20,4 @@ jobs:
             username: blef
             key: ${{ secrets.SSH_KEY }}
             source: index.html
-            target: index.html
+            target: /home/blef
