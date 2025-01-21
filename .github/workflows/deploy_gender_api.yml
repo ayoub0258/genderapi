@@ -30,5 +30,8 @@ jobs:
       - name: Authenticate to GCP registry
         run: gcloud auth configure-docker europe-docker.pkg.dev
 
+      - name: Create the repo
+        run: gcloud artifacts repositories create test-christophe --repository-format docker --location europe
+
       - name: Push to GCP registry
         run: docker push europe-docker.pkg.dev/ensai-2025/test-christophe/gender-api
