@@ -25,10 +25,10 @@ jobs:
         run: docker build -t gender-api .
 
       - name: Tag the image
-        run: docker tag gender-api europe-docker.pkg.dev/ensai-2025/gender-api/christophe
+        run: docker tag gender-api europe-docker.pkg.dev/ensai-2025/test-christophe/gender-api
 
       - name: Authenticate to GCP registry
         run: gcloud auth configure-docker europe-docker.pkg.dev
 
       - name: Push to GCP registry
-        run: docker push europe-docker.pkg.dev/ensai-2025/gender-api/christophe
+        run: docker push europe-docker.pkg.dev/ensai-2025/test-christophe/gender-api
